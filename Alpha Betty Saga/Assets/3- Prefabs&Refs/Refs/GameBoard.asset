@@ -18,123 +18,122 @@ MonoBehaviour:
   board:
   - size: 10
     row:
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
+    - P
+    - L
+    - B
+    - Q
+    - T
+    - H
+    - B
+    - X
+    - M
+    - N
   - size: 10
     row:
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
+    - G
+    - L
+    - R
+    - V
+    - S
+    - N
+    - O
+    - I
+    - T
+    - G
   - size: 10
     row:
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
+    - Q
+    - V
+    - V
+    - O
+    - M
+    - B
+    - M
+    - Y
+    - E
+    - A
   - size: 10
     row:
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
+    - D
+    - Z
+    - O
+    - V
+    - E
+    - J
+    - Q
+    - H
+    - K
+    - Z
   - size: 10
     row:
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
+    - Q
+    - D
+    - L
+    - P
+    - A
+    - M
+    - T
+    - F
+    - R
+    - W
   - size: 10
     row:
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
+    - Y
+    - R
+    - U
+    - T
+    - Z
+    - X
+    - N
+    - X
+    - V
+    - V
   - size: 10
     row:
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
+    - S
+    - X
+    - U
+    - K
+    - Z
+    - Z
+    - N
+    - M
+    - R
+    - S
   - size: 10
     row:
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
+    - M
+    - F
+    - F
+    - K
+    - M
+    - F
+    - S
+    - S
+    - K
+    - R
   - size: 10
     row:
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
+    - T
+    - X
+    - V
+    - F
+    - T
+    - R
+    - K
+    - P
+    - K
+    - E
   - size: 10
     row:
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-  searchingWords:
-  - word: 
+    - B
+    - G
+    - O
+    - M
+    - C
+    - N
+    - J
+    - H
+    - A
+    - X
+  searchingWords: []
