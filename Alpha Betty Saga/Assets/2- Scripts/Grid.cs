@@ -1,8 +1,8 @@
-using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 using Random = UnityEngine.Random;
+using DG.Tweening;
 
 public class Grid : MonoBehaviour
 {
@@ -35,6 +35,9 @@ public class Grid : MonoBehaviour
         0.082f, 0.015f, 0.028f, 0.043f, 0.127f, 0.022f, 0.02f, 0.061f, 0.07f, 0.002f, 0.008f, 0.04f, 0.024f, 0.067f,
         0.075f, 0.019f, 0.001f, 0.057f, 0.063f, 0.091f, 0.028f, 0.01f, 0.024f, 0.002f, 0.02f, 0.001f
     };
+
+    private List<GameObject> lettersList = new List<GameObject>();
+    private float _duration = 1f;
 
     void Start()
     {
@@ -117,18 +120,15 @@ public class Grid : MonoBehaviour
 
     void SetMountainShape()
     {
-        // Example heart shape for a 10x10 grid
+        // Example heart shape for a 7*7 grid
         int[,] mountainShape = {
-            {0, 0, 0, 0, 1, 1, 0, 0, 0, 0},
-            {0, 0, 0, 1, 1, 1, 1, 0, 0, 0},
-            {0, 0, 1, 1, 1, 1, 1, 1, 0, 0},
-            {0, 1, 1, 1, 1, 1, 1, 1, 1, 0},
-            {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-            {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-            {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-            {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-            {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-            {1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
+            {1, 1, 1, 1, 1, 1, 1},
+            {1, 1, 1, 1, 1, 1, 1},
+            {1, 1, 1, 1, 1, 1, 1},
+            {1, 1, 1, 1, 1, 1, 1},
+            {0, 1, 1, 1, 1, 1, 0},
+            {0, 0, 1, 1, 1, 0, 0},
+            {0, 0, 0, 1, 0, 0, 0}
         };
 
         // Update the activeCells array based on the heart shape
@@ -145,28 +145,23 @@ public class Grid : MonoBehaviour
     }
     void SetHeartShape()
     {
-        // Example heart shape for a 10x10 grid
         int[,] heartShape = {
-            {0, 0, 1, 0, 0, 0, 0, 1, 0, 0},
-            {0, 1, 1, 1, 0, 0, 1, 1, 1, 0},
-            {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-            {0, 1, 1, 1, 1, 1, 1, 1, 1, 0},
-            {0, 0, 1, 1, 1, 1, 1, 1, 0, 0},
-            {0, 0, 0, 1, 1, 1, 1, 0, 0, 0},
-            {0, 0, 0, 0, 1, 1, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+            {0, 0, 1, 0, 1, 0, 0},
+            {0, 1, 1, 1, 1, 1, 0},
+            {1, 1, 1, 1, 1, 1, 1},
+            {1, 1, 1, 1, 1, 1, 1},
+            {0, 1, 1, 1, 1, 1, 0},
+            {0, 0, 1, 1, 1, 0, 0},
+            {0, 0, 0, 1, 0, 0, 0}
         };
 
-        // Update the activeCells array based on the heart shape
         for (int i = 0; i < rows; i++)
         {
             for (int j = 0; j < columns; j++)
             {
                 if (heartShape[i, j] == 0)
                 {
-                    activeCells[i, j] = false; // Inactive cell
+                    activeCells[i, j] = false;
                 }
             }
         }
@@ -178,15 +173,15 @@ public class Grid : MonoBehaviour
         {
             for (int j = 0; j < rows; j++)
             {
-                if (activeCells[i, j]) // Only create tiles for active cells
+                if (activeCells[i, j])
                 {
                     GameObject tile = Instantiate(mapTilePrefab,transform.GetChild(0));
 
                     // Position the tile based on its grid location
-                    _xTransition = (tileSize / 2) * rows;
-                    _yTransition = (tileSize / 2) * columns - 50f;
+                    _xTransition = (tileSize / 2) * rows - 50;
+                    _yTransition = (tileSize / 2) * columns;
                     tile.transform.localPosition =
-                        new Vector3((j * tileSize) - _xTransition, (-i * tileSize) + _yTransition, 0);
+                        new Vector3((j * tileSize) - _xTransition, (i * tileSize) - _yTransition, 0);
                 }
             }
         }
@@ -204,11 +199,22 @@ public class Grid : MonoBehaviour
                     GameObject letterTile = Instantiate(alphabetTilePrefab, transform.GetChild(1));
                     letterTile.GetComponentInChildren<TMP_Text>().text = letter.ToString();
 
-                    _xTransition = (tileSize / 2) * rows;
-                    _yTransition = (tileSize / 2) * columns + 50;
-                    float offset = 10;
-                    float highestY = transform.position.y + _yTransition;
-                    letterTile.transform.localPosition = new Vector3(transform.position.x - 50 , highestY, 0);
+                    //set on Top of the Map
+                    _xTransition = (tileSize / 2) * rows - 50;
+                    _yTransition = (tileSize / 2) * columns;
+                    float highestY = transform.position.y + _yTransition - 100;
+                    letterTile.transform.localPosition = new Vector3(transform.position.x , highestY, 0);
+                    
+                    //Add lettersTile to list
+                    lettersList.Add(letterTile);
+                    
+                    int lettersCount = lettersList.Count;
+                    
+                    //To move to their tiles
+                    Vector3 targetPos = new Vector3(((j * tileSize) - _xTransition) / 68,
+                        ((i * tileSize) - _yTransition) / 68, 0);
+                    lettersList[lettersCount-1].transform.DOMove(targetPos, _duration).SetEase(Ease.OutCubic);
+                    _duration += 0.1f;
                 }
             }
         }

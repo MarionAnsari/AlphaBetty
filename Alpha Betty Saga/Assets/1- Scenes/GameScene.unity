@@ -655,10 +655,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 550e98ef399015a46a40edb4b1631a00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rows: 10
-  columns: 10
-  offset: 10
-  mapTilePrefab: {fileID: 8687624254719305633, guid: bfc94fc8146ec3c468635b1fcc61f350, type: 3}
+  rows: 7
+  columns: 7
+  mapTilePrefab: {fileID: 1041474948614744652, guid: 9a87b809964693b458bb794633f8362b, type: 3}
   alphabetTilePrefab: {fileID: 6589249930036487453, guid: 04b7fa3152caea14ba7c6b82c0625a03, type: 3}
   tileSize: 100
   levelNumber: 2
