@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -9,7 +10,8 @@ public class AlphabetTile : MonoBehaviour
     [SerializeField] private Sprite[] alphabetSprites; // 0 for normal, 1 for selected, 2 for correct, 3 for wrong
     
     // for checking the letter
-    private TMP_Text _letterText;
+    public TMP_Text letterTextMeshPro;
+    private string _letterText;
     
     
     private bool _selected;
@@ -34,6 +36,7 @@ public class AlphabetTile : MonoBehaviour
         _clicked = false;
         _isCorrect = false;
         _alphabetSpriteRenderer = GetComponent<SpriteRenderer>();
+        _letterText = letterTextMeshPro.text;
     }
 
 
@@ -42,6 +45,7 @@ public class AlphabetTile : MonoBehaviour
         GameEvents.OnEnableSquareSelection += OnEnableSquareSelection;
         GameEvents.OnDisableSquareSelection += OnDisableSquareSelection;
         GameEvents.OnSelectSquare += OnSelectSquare;
+        GameEvents.OnCorrectWord += CorrectWord;
     }
 
     private void OnDisable()
@@ -49,6 +53,7 @@ public class AlphabetTile : MonoBehaviour
         GameEvents.OnEnableSquareSelection -= OnEnableSquareSelection;
         GameEvents.OnDisableSquareSelection -= OnDisableSquareSelection;
         GameEvents.OnSelectSquare -= OnSelectSquare;
+        GameEvents.OnCorrectWord -= CorrectWord;
     }
 
     public void OnEnableSquareSelection()
@@ -71,6 +76,18 @@ public class AlphabetTile : MonoBehaviour
             ////////// check if the position is selected then do the line
             _alphabetSpriteRenderer.sprite = alphabetSprites[0];
         }
+    }
+
+    public void CorrectWord(string word, List<int> squareIndex)
+    {
+        //??????????????????????????
+        if (_selected && squareIndex.Contains(_index))
+        {
+            _isCorrect = true;
+            _alphabetSpriteRenderer.sprite = alphabetSprites[2];
+        }
+        _selected = false;
+        _clicked = false;
     }
 
     public void OnSelectSquare(Vector3 position)
@@ -105,7 +122,6 @@ public class AlphabetTile : MonoBehaviour
         if (_selected == false && _clicked == true)
         {
             _selected = true;
-            ///////////Im not sure i need this lettertext and index???????????????????????????????????
             GameEvents.CheckSquareMethod(_letterText, gameObject.transform.position, _index);
         }
     }

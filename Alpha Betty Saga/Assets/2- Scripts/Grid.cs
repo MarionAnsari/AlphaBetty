@@ -89,7 +89,7 @@ public class Grid : MonoBehaviour
                     
                     TileList.Add(tile);
                     int tileCount = TileList.Count;
-                    
+
                     char letter = GetRandomLetter();
                     GameObject letterTile = Instantiate(alphabetTilePrefab, transform.GetChild(1));
                     letterTile.GetComponentInChildren<TMP_Text>().text = letter.ToString();

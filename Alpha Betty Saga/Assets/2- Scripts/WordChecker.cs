@@ -1,13 +1,12 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
 public class WordChecker : MonoBehaviour
 {
-    public WordData wordsRef;
-    private string _word;
+    //reference to my scriptable object
+    public WordData wordRef;
+    private string _word = "";
 
     //to limit the raycast
     private int _assignedPoints = 0;
@@ -52,7 +51,7 @@ public class WordChecker : MonoBehaviour
         }
     }
 
-    private void CheckSquareSelected(TMP_Text letterText, Vector3 squarePos, int squareIndex)
+    private void CheckSquareSelected(string letterText, Vector3 squarePos, int squareIndex)
     {
         if (_assignedPoints <= _maxRay)
         {
@@ -77,52 +76,69 @@ public class WordChecker : MonoBehaviour
                 _currentRay = SelectRay(_rayStartPos, squarePos);
                 GameEvents.SelectSquareMethod(squarePos);
                 _word += letterText;
-                CheckWord();
+                if (_assignedPoints == 2)
+                {
+                    Debug.Log("word is three letter");
+                    CheckWordForThree();
+                }
+                if (_assignedPoints == 3)
+                {
+                    Debug.Log("word is four letter");
+                    CheckWordForFour();
+                }
             }
         }
-        
-        // else
-        // {
-        //     if (IsOnRay(_currentRay, squarePos))
-        //     {
-        //         _correctSquareList.Add(squareIndex);
-        //         GameEvents.SelectSquareMethod(squarePos);
-        //         _word += letterText;
-        //         CheckWord();
-        //     }
-        // }
-
         _assignedPoints++;
-
     }
 
-    private void CheckWord()
+    private void CheckWordForThree()
     {
-        ////////////////// here i need my main algorithm for searching the word
-        foreach (var searchingWord in wordsRef.ThreeLetters)
+        //////////////// here i need my main algorithm for searching the word???????????????????????????
+        if (wordRef == null || wordRef.ThreeLetters == null)
         {
-            if (_word == searchingWord)
-            {
-                //////// do not understand the first line
-                _word = string.Empty;
-                Debug.Log("Word found");
-                return;
-            }
+            Debug.LogError("Word reference is not set or the word list is empty.");
+            return;
         }
-    }
+        if (wordRef.ThreeLetters.Contains(_word))
+        {
+            Debug.Log("Word found:"  + _word);
+            GameEvents.CorrectWordMethod(_word, _correctSquareList);
+            _completeWords++;
+            _word = string.Empty;
+            _correctSquareList.Clear();
+            
+        }
+        else
+        {
+            Debug.Log("Word  not found:"  + _word);
+        }
+         
 
-    /*protected virtual bool IsOnRay(Ray currentRay, Vector3 point)
+    }
+    private void CheckWordForFour()
     {
-        var hits = Physics.RaycastAll(currentRay, 0.1f);
-        for (int i = 0; i < hits.Length; i++)
+        //////////////// here i need my main algorithm for searching the word???????????????????????????
+        if (wordRef == null || wordRef.FourLetters == null)
         {
-            if (hits[i].transform.position == point)
-            {
-                return true;
-            }
+            Debug.LogError("Word reference is not set or the word list is empty.");
+            return;
         }
-        return false;
-    }*/
+        if (wordRef.FourLetters.Contains(_word))
+        {
+            Debug.Log("Word found:"  + _word);
+            GameEvents.CorrectWordMethod(_word, _correctSquareList);
+            _completeWords++;
+            _word = string.Empty;
+            _correctSquareList.Clear();
+            
+        }
+        else
+        {
+            Debug.Log("Word  not found:"  + _word);
+        }
+         
+
+    }
 
     private Ray SelectRay(Vector2 firstPos, Vector2 secondPos)
     {

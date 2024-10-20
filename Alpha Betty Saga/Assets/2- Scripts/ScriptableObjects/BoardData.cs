@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -56,7 +57,7 @@ public class BoardData : ScriptableObject
     public int rows;
 
     public BoardRow[] board;
-    
+
     /// <summary>
     /// suppose I need this list for my word searching system
     /// </summary>

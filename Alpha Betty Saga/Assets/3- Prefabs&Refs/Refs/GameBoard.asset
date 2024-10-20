@@ -13,127 +13,139 @@ MonoBehaviour:
   m_Name: GameBoard
   m_EditorClassIdentifier: 
   levelTime: 0
-  columns: 10
-  rows: 10
+  columns: 9
+  rows: 9
   board:
-  - size: 10
+  - size: 9
     row:
-    - P
-    - L
-    - B
-    - Q
-    - T
-    - H
-    - B
-    - X
-    - M
-    - N
-  - size: 10
-    row:
-    - G
-    - L
-    - R
-    - V
-    - S
-    - N
-    - O
-    - I
-    - T
-    - G
-  - size: 10
-    row:
-    - Q
-    - V
-    - V
-    - O
-    - M
-    - B
-    - M
-    - Y
-    - E
-    - A
-  - size: 10
-    row:
-    - D
-    - Z
-    - O
-    - V
-    - E
-    - J
-    - Q
-    - H
-    - K
-    - Z
-  - size: 10
-    row:
-    - Q
-    - D
-    - L
-    - P
-    - A
-    - M
-    - T
-    - F
-    - R
     - W
-  - size: 10
-    row:
-    - Y
-    - R
-    - U
-    - T
-    - Z
-    - X
-    - N
-    - X
-    - V
-    - V
-  - size: 10
-    row:
-    - S
-    - X
-    - U
-    - K
-    - Z
-    - Z
-    - N
-    - M
-    - R
-    - S
-  - size: 10
-    row:
-    - M
-    - F
-    - F
-    - K
-    - M
-    - F
-    - S
-    - S
-    - K
-    - R
-  - size: 10
-    row:
-    - T
-    - X
-    - V
-    - F
-    - T
-    - R
-    - K
     - P
-    - K
-    - E
-  - size: 10
-    row:
-    - B
-    - G
-    - O
+    - L
+    - X
+    - S
+    - R
     - M
-    - C
-    - N
-    - J
+    - Q
+    - H
+  - size: 9
+    row:
+    - V
+    - S
+    - P
+    - E
+    - X
+    - Q
+    - X
+    - S
+    - V
+  - size: 9
+    row:
+    - F
+    - X
     - H
     - A
-    - X
-  searchingWords: []
+    - O
+    - O
+    - Y
+    - W
+    - V
+  - size: 9
+    row:
+    - Y
+    - Z
+    - I
+    - Z
+    - J
+    - M
+    - L
+    - K
+    - J
+  - size: 9
+    row:
+    - T
+    - O
+    - J
+    - O
+    - N
+    - K
+    - H
+    - G
+    - J
+  - size: 9
+    row:
+    - W
+    - E
+    - K
+    - E
+    - U
+    - D
+    - K
+    - D
+    - N
+  - size: 9
+    row:
+    - P
+    - D
+    - Y
+    - K
+    - J
+    - O
+    - Y
+    - D
+    - S
+  - size: 9
+    row:
+    - Q
+    - D
+    - D
+    - Y
+    - A
+    - G
+    - O
+    - Q
+    - K
+  - size: 9
+    row:
+    - C
+    - D
+    - A
+    - M
+    - Y
+    - B
+    - K
+    - C
+    - U
+  searchingWords:
+  - word: ARM
+  - word: ART
+  - word: BAG
+  - word: BAR
+  - word: BAT
+  - word: BED
+  - word: BOX
+  - word: BOY
+  - word: BUG
+  - word: BOX
+  - word: CAN
+  - word: CAR
+  - word: CAT
+  - word: CUP
+  - word: DOG
+  - word: DOT
+  - word: DRY
+  - word: EAR
+  - word: EGG
+  - word: EGO
+  - word: ELF
+  - word: END
+  - word: FAN
+  - word: FED
+  - word: FOG
+  - word: FOR
+  - word: FOX
+  - word: FUN
+  - word: GOD
+  - word: GUM
+  - word: GYM
+  - word: HAT
+  - word: SOON

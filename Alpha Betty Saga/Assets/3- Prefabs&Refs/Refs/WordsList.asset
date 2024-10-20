@@ -12,90 +12,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de4bdf7c7aab2b045ac10c5166cec6d2, type: 3}
   m_Name: WordsList
   m_EditorClassIdentifier: 
-  ThreeLetters:
-  - ARM
-  - BAG
-  - BAR
-  - BAT
-  - BED
-  - BOX
-  - BOY
-  - BUG
-  - BUS
-  - CAN
-  - CAR
-  - CAT
-  - CUP
-  - DEN
-  - DOG
-  - DOT
-  - DRY
-  - END
-  - FAN
-  - FED
-  - FOG
-  - FOR
-  - FOX
-  - FUN
-  - GOD
-  - GOT
-  - GUM
-  - GYM
-  - HAT
-  - HIP
-  - HOT
-  - INK
-  - JAM
-  - JOB
-  - KEY
-  - KID
-  - LAB
-  - LAW
-  - LEG
-  - LID
-  - LIP
-  - LOT
-  - MAP
-  - MAY
-  - MEN
-  - MOW
-  - MUD
-  - MUG
-  - NAP
-  - NUT
-  - OLD
-  - PAN
-  - PAT
-  - PEN
-  - PIG
-  - PIN
-  - RAG
-  - RAM
-  - RAT
-  - RIB
-  - ROD
-  - RUG
-  - RUN
-  - RUN
-  - SAD
-  - SEE
-  - SEW
-  - SHE
-  - SHY
-  - SIN
-  - SLY
-  - SON
-  - SUN
-  - TAG
-  - TIP
-  - TOE
-  - TOP
-  - TRY
-  - VAN
-  - WET
-  - WIN
-  - WOK
-  - YES
-  - YET
-  FourLetters: []
-  FiveLetters: []
+  threeLettersWordsList:
+  - word: ARM
+  - word: BAG
+  - word: BAR
+  - word: BAT
+  - word: BED
+  - word: BOX
+  - word: BOY
+  - word: BUG
+  - word: BUS
+  - word: CAN
+  - word: CAR
+  - word: CAT
+  - word: CUP
+  - word: DOG
+  - word: DOT
+  - word: DRY
+  - word: END
+  - word: FAN
+  - word: FED
+  - word: FOG
+  - word: FOR
+  - word: FOX
+  - word: FUN
+  - word: GOD
+  - word: GOT
+  - word: GUM
+  - word: GYM
+  - word: HAT
+  fourLettersWordsList: []
+  fiveLettersWordsList: []
